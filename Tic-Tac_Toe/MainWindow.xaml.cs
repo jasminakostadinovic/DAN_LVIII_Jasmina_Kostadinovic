@@ -87,7 +87,7 @@ namespace Tic_Tac_Toe
                 ticTac.getWinner(TicTac.BoxState.zero);
             }
 
-            //if the game has ended, call NewGame() method again
+            //if the game has ended and result is stalemate, call NewGame() method again
             if (ticTac.GameState != true)
             {
                 if (ticTac.winner == TicTac.IdentifyWinner.stalemate)
@@ -111,7 +111,9 @@ namespace Tic_Tac_Toe
                         btn[ticTac.winSegments[i]].Background = Brushes.Green;
                     }
                     MessageBox.Show($"{ticTac.winner.ToString()} wins GameOver");
-                    this.newGame();
+
+                    if(ticTac.winner == TicTac.IdentifyWinner.stalemate)
+                        this.newGame();
                 }
             }
         }
