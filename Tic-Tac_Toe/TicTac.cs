@@ -64,6 +64,7 @@ namespace Tic_Tac_Toe
             this.GameState = true;
         }
 
+        //default tile
         public void defaultTileInit()
         {
             for (int i = 0; i < maxSize; ++i)
@@ -92,8 +93,7 @@ namespace Tic_Tac_Toe
                 index = (int)val;
                 return index;
             }
-
-
+            //getting random field until it matches the free one
             while (true)
             {
                 Random random = new Random();
@@ -192,8 +192,7 @@ namespace Tic_Tac_Toe
 
             #endregion
 
-            if (foundPattern) return; ///
-
+            if (foundPattern) return; 
 
             #region VerticalCheck
             segindex = 0;
@@ -231,8 +230,7 @@ namespace Tic_Tac_Toe
 
             #endregion
 
-            if (foundPattern) return; ///
-
+            if (foundPattern) return; 
 
             #region diagonalCheck
 
@@ -275,7 +273,7 @@ namespace Tic_Tac_Toe
         {
 
             short count = 0;
-            short? Aival = null;
+            short? AIval = null;
 
             #region Horizontalcheck
 
@@ -294,11 +292,11 @@ namespace Tic_Tac_Toe
 
                     else
                     {
-                        Aival = i;
+                        AIval = i;
                     }
                 }
 
-                if (count == 2 && tileValues[(int)Aival] != BoxState.zero)
+                if (count == 2 && tileValues[(int)AIval] != BoxState.zero)
                     break;
 
                 count = 0;
@@ -306,7 +304,7 @@ namespace Tic_Tac_Toe
                 temp2 += 2 + 1;
             }
 
-            if (count == 2 && Aival != null) return (short)Aival;
+            if (count == 2 && AIval != null) return (short)AIval;
 
             #endregion
 
@@ -328,7 +326,7 @@ namespace Tic_Tac_Toe
 
                     else
                     {
-                        Aival = i;
+                        AIval = i;
                     }
                 }
 
@@ -342,7 +340,7 @@ namespace Tic_Tac_Toe
                 temp2 = temp3;
             }
 
-            if (count == 2 && Aival != null) return (short)Aival;
+            if (count == 2 && AIval != null) return (short)AIval;
 
             #endregion
 
@@ -364,7 +362,7 @@ namespace Tic_Tac_Toe
 
                     else
                     {
-                        Aival = i;
+                        AIval = i;
                     }
                 }
 
@@ -377,7 +375,7 @@ namespace Tic_Tac_Toe
                 incr -= 2;
             }
 
-            if (count == 2 && Aival != null) return (short)Aival;
+            if (count == 2 && AIval != null) return (short)AIval;
             #endregion
 
             return null;

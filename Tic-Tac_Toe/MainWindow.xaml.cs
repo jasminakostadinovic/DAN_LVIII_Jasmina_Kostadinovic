@@ -28,6 +28,7 @@ namespace Tic_Tac_Toe
         /// initialise new game
         /// </summary> 
 
+        //starts new game and sets all values to default
         private void newGame()
         {
             ticTac.defaultTileInit();
@@ -48,29 +49,31 @@ namespace Tic_Tac_Toe
         /// 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            //casts sender to a Button
             var button = (Button)sender;
-
+            //gets which column the button clicked is in
             var column = Grid.GetColumn(button);
+            //gets which row the button clicked is in
             var row = Grid.GetRow(button);
 
             var gridIndex = column + (row * 3);
 
             if (ticTac.PlayerState && ticTac.GameState)
             {
+                //don't do anything if clicked button already has a value(has already been clicked)
                 if (ticTac.tileValues[gridIndex] != TicTac.BoxState.free)
                 {
-                    MessageBox.Show("Already Filled!");
+                    return;
                 }
-
                 else
                 {
                     ticTac.tileValues[gridIndex] = TicTac.BoxState.cross;
                     button.Content = 'X';
                     ticTac.PlayerState = false;
                 }
+                //checks for a winner
                 ticTac.getWinner(TicTac.BoxState.cross);
             }
-
 
             if (!ticTac.PlayerState && ticTac.GameState)
             {
@@ -80,9 +83,11 @@ namespace Tic_Tac_Toe
                 btn[index].Foreground = Brushes.Red;
                 ticTac.tileValues[index] = TicTac.BoxState.zero;
                 ticTac.PlayerState = true;
+                //checks for a winner
                 ticTac.getWinner(TicTac.BoxState.zero);
             }
 
+            //if the game has ended, call NewGame() method again
             if (ticTac.GameState != true)
             {
                 if (ticTac.winner == TicTac.IdentifyWinner.stalemate)
