@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tic_Tac_Toe"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        ResizeMode="NoResize"
+        Title="Tic Tac Toe" Height="500" Width="500">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+
+            <Setter Property="BorderThickness" Value="0.5"/>
+            <Setter Property="FontSize" Value="100" ></Setter>
+
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="Container">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--buttons-->
+        <Button Click="button_Click" x:Name="button1" Grid.Column="0" Grid.Row="0"/>
+        <Button Click="button_Click" x:Name="button2" Grid.Column="1" Grid.Row="0"/>
+        <Button Click="button_Click" x:Name="button3" Grid.Column="2" Grid.Row="0"/>
+
+        <Button Click="button_Click" x:Name="button4" Grid.Column="0" Grid.Row="1"/>
+        <Button Click="button_Click" x:Name="button5" Grid.Column="1" Grid.Row="1"/>
+        <Button Click="button_Click" x:Name="button6" Grid.Column="2" Grid.Row="1"/>
+
+        <Button Click="button_Click" x:Name="button7" Grid.Column="0" Grid.Row="2"/>
+        <Button Click="button_Click" x:Name="button8" Grid.Column="1" Grid.Row="2"/>
+        <Button Click="button_Click" x:Name="button9" Grid.Column="2" Grid.Row="2"/>
+        <!--buttons-->
     </Grid>
 </Window>
